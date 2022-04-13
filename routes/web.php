@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('Frontend.layouts.master');
+    return view('Frontend.layouts.master')->name('home');
 });
+
+\Illuminate\Support\Facades\Route::get('/add-hotel',[\App\Http\Controllers\HotelController::class,'addHotel'])->name('add.hotel');
