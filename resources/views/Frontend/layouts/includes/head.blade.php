@@ -22,5 +22,6 @@
     <link rel="stylesheet" href="{{asset('css/animated-headline.css')}}">
     <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('css/flag-icon.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">{{asset('')}}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 </head>
