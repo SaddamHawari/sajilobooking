@@ -89,7 +89,7 @@
                     <div class="menu-wrapper">
                         <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('img/images/logo.png')}}" alt="logo"></a>
+                            <a href="{{ url('/') }}"><img src="{{asset('img/images/logo.png')}}" alt="logo"></a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>
