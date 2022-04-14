@@ -66,13 +66,14 @@
                         <h3 class="title"><i class="la la-user mr-2 text-gray"></i>Your information</h3>
                     </div><!-- form-title-wrap -->
                     <div class="form-content contact-form-action">
-                        <form method="post" class="row">
+                        <form method="post" class="row" action="{{ route('hotel.store') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="col-lg-6 responsive-column">
                                 <div class="input-box">
                                     <label class="label-text">Your Name</label>
                                     <div class="form-group">
                                         <span class="la la-user form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="Your name">
+                                        <input class="form-control" type="text" name="name" placeholder="Your name">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -89,8 +90,8 @@
                                 <div class="input-box">
                                     <label class="label-text">What is your role at this business?</label>
                                     <div class="form-group select-contain w-100">
-                                        <select class="select-contain-select">
-                                            <option value="">Select one</option>
+                                        <select class="select-contain-select" name="role" id="role">
+                                            <option value="">--Select one--</option>
                                             <option value="OWNER">Owner</option>
                                             <option value="GENERAL_MANAGER">General Manager</option>
                                             <option value="INNKEEPER">Innkeeper</option>
@@ -105,7 +106,6 @@
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
-                        </form>
                     </div><!-- end form-content -->
                 </div><!-- end form-box -->
                 <div class="form-box">
@@ -113,13 +113,13 @@
                         <h3 class="title"><i class="la la-gear mr-2 text-gray"></i>Listing information for your accommodation</h3>
                     </div><!-- form-title-wrap -->
                     <div class="form-content contact-form-action">
-                        <form method="post" class="row">
+
                             <div class="col-lg-6 responsive-column">
                                 <div class="input-box">
                                     <label class="label-text">Official business name</label>
                                     <div class="form-group">
                                         <span class="la la-briefcase form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="Business name">
+                                        <input class="form-control" type="text" name="bussiness_name" placeholder="Business name">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -127,7 +127,7 @@
                                 <div class="input-box">
                                     <label class="label-text">Country</label>
                                     <div class="form-group select-contain w-100">
-                                        <select class="select-contain-select">
+                                        <select class="select-contain-select" name="country">
                                             <option value="">Select a country </option>
                                             <option value="Afghanistan">Afghanistan</option>
                                             <option value="Åland Islands">Åland Islands</option>
@@ -382,7 +382,7 @@
                                     <label class="label-text">City/Town, State/Province/Region</label>
                                     <div class="form-group">
                                         <span class="la la-map form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="example: New York">
+                                        <input class="form-control" type="text" name="region" placeholder="example: New York">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -398,7 +398,7 @@
                                 <div class="input-box">
                                     <label class="label-text">Country/region code</label>
                                     <div class="form-group select-contain w-100">
-                                        <select class="select-contain-select">
+                                        <select class="select-contain-select" name="country_region">
                                             <option value="">Select country code</option>
                                             <option value="ALB">Albania (355)</option>
                                             <option value="DZA">Algeria (213)</option>
@@ -637,7 +637,7 @@
                                     <label class="label-text">Street address</label>
                                     <div class="form-group">
                                         <span class="la la-map-marker form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="Building number and street name, example: 123 Main Street">
+                                        <input class="form-control" type="text" name="street" placeholder="Building number and street name, example: 123 Main Street">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-8 -->
@@ -646,86 +646,86 @@
                                     <label class="label-text">Additional address information</label>
                                     <div class="form-group">
                                         <span class="la la-map-marker form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="Suite number, intersection, plaza, square">
+                                        <input class="form-control" type="text" name="additonal_information" placeholder="Suite number, intersection, plaza, square">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-12 -->
-                        </form>
+
                     </div><!-- end form-content -->
                 </div><!-- end form-box -->
-                <div class="form-box">
-                    <div class="form-title-wrap">
-                        <h3 class="title"><i class="la la-map mr-2 text-gray"></i>Map Location</h3>
-                    </div><!-- form-title-wrap -->
-                    <div class="form-content contact-form-action">
-                        <form method="post" class="row">
-                            <div class="col-lg-6">
-                                <div class="input-box">
-                                    <label class="label-text">Longitude</label>
-                                    <div class="form-group">
-                                        <span class="la la-map form-icon"></span>
-                                        <input class="form-control" id="longitude" type="text" placeholder="Map Longitude">
-                                    </div>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                            <div class="col-lg-6">
-                                <div class="input-box">
-                                    <label class="label-text">Latitude</label>
-                                    <div class="form-group">
-                                        <span class="la la-map form-icon"></span>
-                                        <input class="form-control" id="latitude" type="text" placeholder="Map Latitude">
-                                    </div>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                            <div class="col-lg-12">
-                                <div class="input-box">
-                                    <label class="label-text">For precise location, drag the blue marker on the map.</label>
-                                    <div class="form-group map-container">
-                                        <div id="singleMap" class="drag-map" data-latitude="40.7427837" data-longitude="-73.11445617675781"></div>
-                                    </div>
-                                </div>
-                            </div><!-- end col-lg-12 -->
-                            <div class="col-lg-12">
-                                <label class="label-text">Or enter Coordinates (longitude and latitude) Manually.</label>
-                            </div><!-- end col-lg-12 -->
-                            <div class="col-lg-6">
-                                <div class="input-box">
-                                    <label class="label-text">Longitude</label>
-                                    <div class="form-group">
-                                        <span class="la la-map form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="40.731444531797315">
-                                    </div>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                            <div class="col-lg-6">
-                                <div class="input-box">
-                                    <label class="label-text">Latitude</label>
-                                    <div class="form-group">
-                                        <span class="la la-map form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="40.731444531797315">
-                                    </div>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                            <div class="col-lg-12">
-                                <div class="btn-box">
-                                    <button type="button" class="theme-btn theme-btn-small">Find on Map</button>
-                                </div>
-                            </div><!-- end col-lg-12 -->
-                        </form>
-                    </div><!-- end form-content -->
-                </div><!-- end form-box -->
+{{--                <div class="form-box">--}}
+{{--                    <div class="form-title-wrap">--}}
+{{--                        <h3 class="title"><i class="la la-map mr-2 text-gray"></i>Map Location</h3>--}}
+{{--                    </div><!-- form-title-wrap -->--}}
+{{--                    <div class="form-content contact-form-action">--}}
+{{--                        <form method="post" class="row">--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="input-box">--}}
+{{--                                    <label class="label-text">Longitude</label>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <span class="la la-map form-icon"></span>--}}
+{{--                                        <input class="form-control" id="longitude" type="text" placeholder="Map Longitude">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="input-box">--}}
+{{--                                    <label class="label-text">Latitude</label>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <span class="la la-map form-icon"></span>--}}
+{{--                                        <input class="form-control" id="latitude" type="text" placeholder="Map Latitude">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                            <div class="col-lg-12">--}}
+{{--                                <div class="input-box">--}}
+{{--                                    <label class="label-text">For precise location, drag the blue marker on the map.</label>--}}
+{{--                                    <div class="form-group map-container">--}}
+{{--                                        <div id="singleMap" class="drag-map" data-latitude="40.7427837" data-longitude="-73.11445617675781"></div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-12 -->--}}
+{{--                            <div class="col-lg-12">--}}
+{{--                                <label class="label-text">Or enter Coordinates (longitude and latitude) Manually.</label>--}}
+{{--                            </div><!-- end col-lg-12 -->--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="input-box">--}}
+{{--                                    <label class="label-text">Longitude</label>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <span class="la la-map form-icon"></span>--}}
+{{--                                        <input class="form-control" type="text" placeholder="40.731444531797315">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="input-box">--}}
+{{--                                    <label class="label-text">Latitude</label>--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <span class="la la-map form-icon"></span>--}}
+{{--                                        <input class="form-control" type="text" placeholder="40.731444531797315">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                            <div class="col-lg-12">--}}
+{{--                                <div class="btn-box">--}}
+{{--                                    <button type="button" class="theme-btn theme-btn-small">Find on Map</button>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-12 -->--}}
+{{--                        </form>--}}
+{{--                    </div><!-- end form-content -->--}}
+{{--                </div><!-- end form-box -->--}}
                 <div class="form-box">
                     <div class="form-title-wrap">
                         <h3 class="title"><i class="la la-user mr-2 text-gray"></i>Contact Details</h3>
                     </div><!-- form-title-wrap -->
                     <div class="form-content contact-form-action">
-                        <form method="post" class="row">
+
                             <div class="col-lg-6">
                                 <div class="input-box">
                                     <label class="label-text">Phone</label>
                                     <div class="form-group">
                                         <span class="la la-phone form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="+1(1)8547632521">
+                                        <input class="form-control" type="text" placeholder="+1(1)8547632521" name="phone">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -734,7 +734,7 @@
                                     <label class="label-text">Fax</label>
                                     <div class="form-group">
                                         <span class="la la-print form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="+1(1)1147521433">
+                                        <input class="form-control" type="text" placeholder="+1(1)1147521433" name="fax">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -752,7 +752,7 @@
                                     <label class="label-text">Your Website Address</label>
                                     <div class="form-group">
                                         <span class="la la-globe form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="https://www.techydevs.com/">
+                                        <input class="form-control" type="text" placeholder="https://www.techydevs.com/" name="website">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -761,7 +761,7 @@
                                     <label class="label-text">Facebook Page</label>
                                     <div class="form-group">
                                         <span class="la la-facebook form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="https://www.facebook.com/">
+                                        <input class="form-control" type="text" placeholder="https://www.facebook.com/" name="facebook">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -770,7 +770,7 @@
                                     <label class="label-text">Instagram Page</label>
                                     <div class="form-group">
                                         <span class="la la-instagram form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="https://www.instagram.com/">
+                                        <input class="form-control" type="text" placeholder="https://www.instagram.com/" name="instagram">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -779,7 +779,7 @@
                                     <label class="label-text">Twitter Page</label>
                                     <div class="form-group">
                                         <span class="la la-twitter form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="https://www.twitter.com/">
+                                        <input class="form-control" type="text" placeholder="https://www.twitter.com/" name="twitter">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -788,11 +788,11 @@
                                     <label class="label-text">Linkedin Page</label>
                                     <div class="form-group">
                                         <span class="la la-linkedin form-icon"></span>
-                                        <input class="form-control" type="text" placeholder="https://www.linkedin.com/">
+                                        <input class="form-control" type="text" placeholder="https://www.linkedin.com/" name="linkedin">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
-                        </form>
+
                     </div><!-- end form-content -->
                 </div><!-- end form-box -->
                 <div class="form-box">
@@ -800,13 +800,13 @@
                         <h3 class="title"><i class="la la-building-o mr-2 text-gray"></i>Information about your accommodation</h3>
                     </div><!-- form-title-wrap -->
                     <div class="form-content contact-form-action">
-                        <form method="post" class="row">
+
                             <div class="col-lg-12">
                                 <div class="input-box">
                                     <label class="label-text">Total number of rooms & suites</label>
                                     <div class="form-group">
                                         <span class="la la-pencil form-icon"></span>
-                                        <input class="form-control" type="text" name="text" placeholder="Total number of rooms & suites">
+                                        <input class="form-control" type="text" name="room" placeholder="Total number of rooms & suites">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-12 -->
@@ -814,9 +814,9 @@
                                 <div class="input-box">
                                     <label class="label-text">Price range (per night)</label>
                                     <div class="form-group d-flex align-items-center">
-                                        <input class="form-control pl-3" type="text" name="text" placeholder="Min">
+                                        <input class="form-control pl-3" type="text" name="min_price" placeholder="Min">
                                         <span class="px-2">to</span>
-                                        <input class="form-control pl-3" type="text" name="text" placeholder="Max">
+                                        <input class="form-control pl-3" type="text" name="max_price" placeholder="Max">
                                     </div>
                                 </div>
                             </div><!-- end col-lg-6 -->
@@ -824,7 +824,7 @@
                                 <div class="input-box">
                                     <label class="label-text">Select a currency</label>
                                     <div class="form-group select-contain w-100">
-                                        <select class="select-contain-select">
+                                        <select class="select-contain-select" name="currency_tweo">
                                             <option value="">--Select a currency--</option>
                                             <option value="USD">USD U.S. Dollars</option>
                                             <option value="GBP">GBP British Pounds</option>
@@ -862,7 +862,7 @@
                                     <label class="label-text mb-0 line-height-20">Additional Description</label>
                                     <p class="font-size-13 mb-3 line-height-20">400 character limit</p>
                                     <div class="form-group select-contain w-100">
-                                        <select class="select-contain-select">
+                                        <select class="select-contain-select" name="langauge">
                                             <option value="">--Select a language--</option>
                                             <option value="ar">Arabic</option>
                                             <option value="zh">Chinese</option>
@@ -894,7 +894,7 @@
                                     </div>
                                     <div class="form-group">
                                         <span class="la la-pencil form-icon"></span>
-                                        <textarea class="message-control form-control" name="message" placeholder="No HTML, no web or email address, no ALL CAPS           "></textarea>
+                                        <textarea class="message-control form-control" name="message_two" placeholder="No HTML, no web or email address, no ALL CAPS           "></textarea>
                                     </div>
                                 </div>
                             </div><!-- end col-lg-12 -->
@@ -920,12 +920,12 @@
                                     <label class="label-text text-color-6">Security *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-3" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-3" name="radio">
+                                            <input type="radio" id="radio-3" name="security">
                                             <span class="checkmark"></span>
                                             <span>On site</span>
                                         </label>
                                         <label for="radio-4" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-4" name="radio">
+                                            <input type="radio" id="radio-4" name="security">
                                             <span class="checkmark"></span>
                                             <span>None</span>
                                         </label>
@@ -937,12 +937,12 @@
                                     <label class="label-text text-color-6">On site staff *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-5" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-5" name="radio">
+                                            <input type="radio" id="radio-5" name="staff">
                                             <span class="checkmark"></span>
                                             <span>Yes</span>
                                         </label>
                                         <label for="radio-6" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-6" name="radio">
+                                            <input type="radio" id="radio-6" name="staff">
                                             <span class="checkmark"></span>
                                             <span>No</span>
                                         </label>
@@ -954,12 +954,12 @@
                                     <label class="label-text text-color-6">Housekeeping *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-7" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-7" name="radio">
+                                            <input type="radio" id="radio-7" name="housekeeping">
                                             <span class="checkmark"></span>
                                             <span>Included in room rate</span>
                                         </label>
                                         <label for="radio-8" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-8" name="radio">
+                                            <input type="radio" id="radio-8" name="housekeeping">
                                             <span class="checkmark"></span>
                                             <span>Additional Fee</span>
                                         </label>
@@ -971,22 +971,22 @@
                                     <label class="label-text text-color-6">Housekeeping frequency *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-9" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-9" name="radio">
+                                            <input type="radio" id="radio-9" name="frquency">
                                             <span class="checkmark"></span>
                                             <span>Daily</span>
                                         </label>
                                         <label for="radio-10" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-10" name="radio">
+                                            <input type="radio" id="radio-10" name="frquency">
                                             <span class="checkmark"></span>
                                             <span>Weekly</span>
                                         </label>
                                         <label for="radio-11" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-11" name="radio">
+                                            <input type="radio" id="radio-11" name="frquency">
                                             <span class="checkmark"></span>
                                             <span>Bi-weekly</span>
                                         </label>
                                         <label for="radio-12" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-12" name="radio">
+                                            <input type="radio" id="radio-12" name="frquency">
                                             <span class="checkmark"></span>
                                             <span>None</span>
                                         </label>
@@ -998,17 +998,17 @@
                                     <label class="label-text text-color-6">Front desk *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-13" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-13" name="radio">
+                                            <input type="radio" id="radio-13" name="frontdesk">
                                             <span class="checkmark"></span>
                                             <span>24-hour staffing</span>
                                         </label>
                                         <label for="radio-14" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-14" name="radio">
+                                            <input type="radio" id="radio-14" name="frontdesk" value="24hr">
                                             <span class="checkmark"></span>
                                             <span>Limited hours staffing</span>
                                         </label>
                                         <label for="radio-15" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-15" name="radio">
+                                            <input type="radio" id="radio-15" name="frontdesk">
                                             <span class="checkmark"></span>
                                             <span>None</span>
                                         </label>
@@ -1020,132 +1020,129 @@
                                     <label class="label-text text-color-6">Bathroom *</label>
                                     <div class="form-group d-flex align-items-center">
                                         <label for="radio-16" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-16" name="radio">
+                                            <input type="radio" id="radio-16" name="bathroom">
                                             <span class="checkmark"></span>
                                             <span>All en suite</span>
                                         </label>
                                         <label for="radio-17" class="radio-trigger mb-0 font-size-14 mr-3">
-                                            <input type="radio" id="radio-17" name="radio">
+                                            <input type="radio" id="radio-17" name="bathroom">
                                             <span class="checkmark"></span>
                                             <span>Some en suite</span>
                                         </label>
                                         <label for="radio-18" class="radio-trigger mb-0 font-size-14">
-                                            <input type="radio" id="radio-18" name="radio">
+                                            <input type="radio" id="radio-18" name="bathroom">
                                             <span class="checkmark"></span>
                                             <span>Shared</span>
                                         </label>
                                     </div>
                                 </div>
-                            </div><!-- end col-lg-6 -->
-                        </form>
+                            </div>
                     </div><!-- end form-content -->
                 </div><!-- end form-box -->
-                <div class="form-box">
-                    <div class="form-title-wrap">
-                        <h3 class="title"><i class="la la-gear mr-2 text-gray"></i>Amenities</h3>
-                    </div><!-- form-title-wrap -->
-                    <div class="form-content contact-form-action">
-                        <form method="post" class="row">
-                            <div class="col-lg-6">
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="AirportTransportation">
-                                    <label for="AirportTransportation">Airport Transportation</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="BarLounge">
-                                    <label for="BarLounge">Bar / Lounge</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Beach">
-                                    <label for="Beach">Beach</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="BeverageSelection">
-                                    <label for="BeverageSelection">Beverage Selection</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="SwimmingPool">
-                                    <label for="SwimmingPool">Swimming Pool</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="WIFI">
-                                    <label for="WIFI">WI-FI</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Coffee">
-                                    <label for="Coffee">Coffee</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="AirConditioning">
-                                    <label for="AirConditioning">Air Conditioning</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Entertainment">
-                                    <label for="Entertainment">Entertainment</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="ElevatorInBuilding">
-                                    <label for="ElevatorInBuilding">Elevator In Building</label>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                            <div class="col-lg-6">
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="WheelchairAccess">
-                                    <label for="WheelchairAccess">Wheelchair access</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="FitnessFacility">
-                                    <label for="FitnessFacility">Fitness Facility</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Breakfast">
-                                    <label for="Breakfast">Breakfast</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="HandicapAccessible">
-                                    <label for="HandicapAccessible">Handicap Accessible</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="PetsAllowed">
-                                    <label for="PetsAllowed">Pets Allowed</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="SuitableForEvents">
-                                    <label for="SuitableForEvents">Suitable For Events</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Restaurant">
-                                    <label for="Restaurant">Restaurant</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="Doorman">
-                                    <label for="Doorman">Doorman</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="FreeParking">
-                                    <label for="FreeParking">Free Parking</label>
-                                </div>
-                                <div class="custom-checkbox">
-                                    <input type="checkbox" id="WineBar">
-                                    <label for="WineBar">Wine Bar</label>
-                                </div>
-                            </div><!-- end col-lg-6 -->
-                        </form>
-                    </div><!-- end form-content -->
-                </div><!-- end form-box -->
+{{--                <div class="form-box">--}}
+{{--                    <div class="form-title-wrap">--}}
+{{--                        <h3 class="title"><i class="la la-gear mr-2 text-gray"></i>Amenities</h3>--}}
+{{--                    </div><!-- form-title-wrap -->--}}
+{{--                    <div class="form-content contact-form-action">--}}
+{{--                        <form method="post" class="row">--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="AirportTransportation">--}}
+{{--                                    <label for="AirportTransportation">Airport Transportation</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="BarLounge">--}}
+{{--                                    <label for="BarLounge">Bar / Lounge</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Beach">--}}
+{{--                                    <label for="Beach">Beach</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="BeverageSelection">--}}
+{{--                                    <label for="BeverageSelection">Beverage Selection</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="SwimmingPool">--}}
+{{--                                    <label for="SwimmingPool">Swimming Pool</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="WIFI">--}}
+{{--                                    <label for="WIFI">WI-FI</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Coffee">--}}
+{{--                                    <label for="Coffee">Coffee</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="AirConditioning">--}}
+{{--                                    <label for="AirConditioning">Air Conditioning</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Entertainment">--}}
+{{--                                    <label for="Entertainment">Entertainment</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="ElevatorInBuilding">--}}
+{{--                                    <label for="ElevatorInBuilding">Elevator In Building</label>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                            <div class="col-lg-6">--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="WheelchairAccess">--}}
+{{--                                    <label for="WheelchairAccess">Wheelchair access</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="FitnessFacility">--}}
+{{--                                    <label for="FitnessFacility">Fitness Facility</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Breakfast">--}}
+{{--                                    <label for="Breakfast">Breakfast</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="HandicapAccessible">--}}
+{{--                                    <label for="HandicapAccessible">Handicap Accessible</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="PetsAllowed">--}}
+{{--                                    <label for="PetsAllowed">Pets Allowed</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="SuitableForEvents">--}}
+{{--                                    <label for="SuitableForEvents">Suitable For Events</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Restaurant">--}}
+{{--                                    <label for="Restaurant">Restaurant</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="Doorman">--}}
+{{--                                    <label for="Doorman">Doorman</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="FreeParking">--}}
+{{--                                    <label for="FreeParking">Free Parking</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="custom-checkbox">--}}
+{{--                                    <input type="checkbox" id="WineBar">--}}
+{{--                                    <label for="WineBar">Wine Bar</label>--}}
+{{--                                </div>--}}
+{{--                            </div><!-- end col-lg-6 -->--}}
+{{--                        </form>--}}
+{{--                    </div><!-- end form-content -->--}}
+{{--                </div><!-- end form-box -->--}}
                 <div class="form-box">
                     <div class="form-title-wrap">
                         <h3 class="title"><i class="la la-photo mr-2 text-gray"></i>Choose a photo to represent this listing</h3>
                     </div><!-- form-title-wrap -->
                     <div class="form-content contact-form-action">
-                        <form method="post" class="row">
                             <div class="col-lg-12">
                                 <div class="file-upload-wrap">
-                                    <input type="file" name="files[]" class="multi file-upload-input with-preview" multiple maxlength="3">
+                                    <input type="file" name="image" class="multi file-upload-input with-preview" multiple maxlength="3">
                                     <span class="file-upload-text"><i class="la la-upload mr-2"></i>Click or drag images here to upload</span>
                                 </div>
                             </div><!-- end col-lg-12 -->
-                        </form>
                     </div><!-- end form-content -->
                 </div><!-- end form-box -->
                 <div class="submit-box">
@@ -1161,6 +1158,7 @@
             </div><!-- end col-lg-9 -->
         </div><!-- end row -->
     </div><!-- end container -->
+</form>
 </section><!-- end listing-form -->
 <!-- ================================
     END FORM AREA
@@ -1196,7 +1194,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="contact-form-action">
-                        <form method="post">
+                        <form method="post" action="{{ route('hotel.store') }}">
+                            @csrf
                             <div class="input-box">
                                 <label class="label-text">Username</label>
                                 <div class="form-group">

@@ -114,7 +114,7 @@
                                             <ul class="row no-gutters">
                                                 <li class="col-lg-3 mega-menu-item">
                                                     <ul>
-                                                        <li><a href="{{ route('add.hotel') }}">add hotel </a></li>
+                                                        <li><a href="{{ route('hotel.add') }}">add hotel </a></li>
 {{--                                                        <li><a href="{{asset('Frontend/layouts/hotel/add-hotel.blade.php')}}">add hotel </a></li>--}}
                                                         <li><a href="add-flight.html">add flight </a></li>
                                                         <li><a href="add-car.html">add car</a></li>
