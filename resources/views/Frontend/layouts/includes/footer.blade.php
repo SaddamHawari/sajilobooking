@@ -4,7 +4,7 @@
             <div class="col-lg-3 responsive-column">
                 <div class="footer-item">
                     <div class="footer-logo padding-bottom-30px">
-                        <a href="index.html" class="foot__logo"><img src="{{asset('img/images/logo.png')}}" alt="logo"></a>
+                        <a href="index.html" class="foot__logo"><img src="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->logo: ''}}" alt="logo" height="100px" width="100px"></a>
                     </div><!-- end logo -->
                     <p class="footer__desc">Morbi convallis bibendum urna ut viverra. Maecenas consequat</p>
                     <ul class="list-items pt-3">
@@ -73,10 +73,9 @@
             <div class="col-lg-4">
                 <div class="footer-social-box text-right">
                     <ul class="social-profile">
-                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
-                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
-                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
+                        <li><a href="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->facebook: ''}}" target="_blank"><i class="lab la-facebook-f"></i></a></li>
+                        <li><a href="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->youtube: ''}}" target="_blank"><i class="lab la-youtube"></i></a></li>
+                        <li><a href="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->instagram: ''}}" target="_blank"><i class="lab la-instagram"></i></a></li>
                     </ul>
                 </div>
             </div><!-- end col-lg-4 -->
@@ -87,10 +86,10 @@
         <div class="row align-items-center">
             <div class="col-lg-7">
                 <div class="copy-right padding-top-30px">
-                    <p class="copy__desc">
-                        &copy; Copyright Trizen 2020. Made with
-                        <span class="la la-heart"></span> by <a href="https://themeforest.net/user/techydevs/portfolio">TechyDevs</a>
-                    </p>
+                    <span class="copyrights">
+                        &copy; Copyright {{ \Illuminate\Support\Facades\Session::get('site_setting') ?  \Illuminate\Support\Facades\Session::get('site_setting')->copyright :'' }}
+                    </span>
+
                 </div><!-- end copy-right -->
             </div><!-- end col-lg-7 -->
             <div class="col-lg-5">

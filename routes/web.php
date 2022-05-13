@@ -12,6 +12,9 @@
 */
 
 Route::get('/', function () {
+    $settings = \App\Site_setting::find(1);
+        \Illuminate\Support\Facades\Session::put('site_setting',$settings);
+//        dd(\Illuminate\Support\Facades\Session::get('site_setting',$settings));
     return view('Frontend.layouts.master');
 });
 
@@ -24,3 +27,14 @@ Route::group(['prefix'=>'hotel','as'=>'hotel.'], function(){
     Route::post('/update-hotel/{id}', 'HotelController@update')->name('update');
     Route::post('/delete-hotel/{id}', 'HotelController@delete')->name('delete');
 });
+
+//Admin login
+Route::get('/admin/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('admin.login');
+Route::post('/admin/submit', [\App\Http\Controllers\AdminController::class, 'submit'])->name('admin.submit');
+Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+//Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
+
+//site_setting
+\Illuminate\Support\Facades\Route::get('/site_setting',[\App\Http\Controllers\SiteSettingController::class,'site'])->name('site.setting');
+\Illuminate\Support\Facades\Route::post('/update_settings',[\App\Http\Controllers\SiteSettingController::class,'updateSetting'])->name('update.setting');
+

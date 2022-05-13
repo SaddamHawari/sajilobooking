@@ -6,8 +6,8 @@
                     <div class="header-top-content">
                         <div class="header-left">
                             <ul class="list-items">
-                                <li><a href="#"><i class="la la-phone mr-1"></i>+977982-9277774</a></li>
-                                <li><a href="#"><i class="la la-envelope mr-1"></i>sajilobooking@example.com</a></li>
+                                <li><a href="#"><i class="la la-phone mr-1"></i>{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->phone: ''}}</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -89,7 +89,8 @@
                     <div class="menu-wrapper">
                         <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                         <div class="logo">
-                            <a href="{{ url('/') }}"><img src="{{asset('img/images/logo.png')}}" alt="logo"></a>
+                            <a href="{{ url('/') }}"><img src="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->logo: ''}}" alt="logo" height="100px" width="100px">
+                            </a>
                             <div class="menu-toggler">
                                 <i class="la la-bars"></i>
                                 <i class="la la-times"></i>

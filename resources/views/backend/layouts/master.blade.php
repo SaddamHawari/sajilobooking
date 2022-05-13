@@ -8,7 +8,7 @@
     <meta name="author" content="Creative Tim">
     <title>sajilobooking</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{asset('img/brand/favicon.png')}}" type="image/png">
+    <link rel="icon" href="{{\Illuminate\Support\Facades\Session::get('site_setting') ? \Illuminate\Support\Facades\Session::get('site_setting')->logo: ''}}" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
