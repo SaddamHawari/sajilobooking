@@ -32,9 +32,13 @@ Route::group(['prefix'=>'hotel','as'=>'hotel.'], function(){
 Route::get('/admin/login', [\App\Http\Controllers\AdminController::class, 'login'])->name('admin.login');
 Route::post('/admin/submit', [\App\Http\Controllers\AdminController::class, 'submit'])->name('admin.submit');
 Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'adminDashboard'])->name('admin.dashboard');
-//Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
 
 //site_setting
 \Illuminate\Support\Facades\Route::get('/site_setting',[\App\Http\Controllers\SiteSettingController::class,'site'])->name('site.setting');
 \Illuminate\Support\Facades\Route::post('/update_settings',[\App\Http\Controllers\SiteSettingController::class,'updateSetting'])->name('update.setting');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
