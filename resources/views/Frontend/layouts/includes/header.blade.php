@@ -101,109 +101,30 @@
                                     <li>
                                         <a href="#">Home <i class="la la-angle-down"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="index.html">Home - main</a></li>
-                                            <li><a href="index2.html">Home - Hotel</a></li>
-                                            <li><a href="index4.html">Home - Car</a></li>
-                                            <li><a href="index6.html">Home - Flight</a></li>
+                                            <li><a href="{{ url('/') }}">Home - main</a></li>
+                                            <li><a href="{{ url('/') }}">Home - Hotel</a></li>
                                         </ul>
                                     </li>
                                     <li>
-                                    <li>
-                                        <a href="#">Pages <i class="la la-angle-down"></i></a>
-                                        <div class="dropdown-menu-item mega-menu">
-                                            <ul class="row no-gutters">
-                                                <li class="col-lg-3 mega-menu-item">
-                                                    <ul>
-                                                        <li><a href="{{ route('hotel.add') }}">add hotel </a></li>
-{{--                                                        <li><a href="{{asset('Frontend/layouts/hotel/add-hotel.blade.php')}}">add hotel </a></li>--}}
-                                                        <li><a href="add-flight.html">add flight </a></li>
-                                                        <li><a href="add-car.html">add car</a></li>
-                                                        <li><a href="user-dashboard.html">User Dashboard</a></li>
-                                                        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-lg-3 mega-menu-item">
-                                                    <ul>
-                                                        <li><a href="user-profile.html">User profile</a></li>
-                                                        <li><a href="contact.html">contact</a></li>
-                                                        <li><a href="cart.html">Cart</a></li>
-                                                        <li><a href="checkout.html">Checkout</a></li>
-                                                        <li><a href="recover.html">recover password</a></li>
-                                                        <li><a href="payment-received.html">payment received</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-lg-3 mega-menu-item">
-                                                    <ul>
-                                                        <li><a href="payment-complete.html">payment complete</a></li>
-                                                        <li><a href="destinations.html">Destinations</a></li>
-                                                        <li><a href="about.html">about</a></li>
-                                                        <li><a href="services.html">Our Services</a></li>
-                                                        <li><a href="gallery.html">Gallery</a></li>
-                                                        <li><a href="pricing.html">pricing</a></li>
-                                                        <li><a href="faq.html">faq</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-lg-3 mega-menu-item">
-                                                    <ul>
-                                                        <li><a href="add-new-post.html">add new post</a></li>
-                                                        <li><a href="blog-full-width.html">blog full width</a></li>
-                                                        <li><a href="blog-grid.html">blog grid</a></li>
-                                                        <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                                        <li><a href="blog-single.html">blog details</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a href="#">Flight <i class="la la-angle-down"></i></a>
-                                        <ul class="dropdown-menu-item">
-                                            <li><a href="flight-grid.html">Flight grid</a></li>
-                                            <li><a href="flight-list.html">Flight list</a></li>
-                                            <li><a href="flight-sidebar.html">Flight sidebar </a></li>
-                                            <li><a href="flight-single.html">Flight details</a></li>
-                                            <li><a href="flight-booking.html">Flight Booking</a></li>
-                                            <li><a href="flight-search-result.html">Flight Search Result</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li>
                                         <a href="#">Hotel <i class="la la-angle-down"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="hotel-grid.html">Hotel grid</a></li>
-                                            <li><a href="hotel-list.html">Hotel list</a></li>
-                                            <li><a href="hotel-sidebar.html">Hotel sidebar </a></li>
-                                            <li><a href="hotel-single.html">Hotel details</a></li>
-                                            <li><a href="hotel-booking.html">Hotel Booking</a></li>
-                                            <li><a href="hotel-search-result.html">Hotel Search Result</a></li>
-                                            <li>
-                                                <a href="#">Rooms <i class="la la-plus"></i></a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="room-list.html">Room List</a></li>
-                                                    <li><a href="room-grid.html">Room Grid</a></li>
-                                                    <li><a href="room-search-result.html">Search Result</a></li>
-                                                    <li><a href="room-search-result-list.html">Search Result list</a></li>
-                                                    <li><a href="room-details.html">Room Details</a></li>
-                                                </ul>
-                                            </li>
+                                            <li><a href="hotel-grid.html">Hotel</a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="#">car <i class="la la-angle-down"></i></a>
                                         <ul class="dropdown-menu-item">
-                                            <li><a href="car-grid.html">car grid</a></li>
-                                            <li><a href="car-list.html">car list</a></li>
-                                            <li><a href="car-sidebar.html">car sidebar </a></li>
-                                            <li><a href="car-single.html">car details</a></li>
-                                            <li><a href="car-booking.html">Car Booking</a></li>
-                                            <li><a href="car-search-result.html">Car Search Result</a></li>
+                                            <li><a href="car-grid.html">Car</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </nav>
                         </div><!-- end main-menu-content -->
-                        <div class="nav-btn">
-                            <a href="become-local-expert.html" class="theme-btn">Become Local Expert</a>
-                        </div><!-- end nav-btn -->
+{{--                        <div class="nav-btn">--}}
+{{--                            <a href="become-local-expert.html" class="theme-btn">Become Local Expert</a>--}}
+{{--                        </div><!-- end nav-btn -->--}}
                     </div><!-- end menu-wrapper -->
                 </div><!-- end col-lg-12 -->
             </div><!-- end row -->
