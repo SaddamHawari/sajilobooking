@@ -24,39 +24,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/map.html">
+                        <a class="nav-link" href="{{ url('admin/booking') }}">
                             <i class="ni ni-pin-3 text-primary"></i>
-                            <span class="nav-link-text">Google</span>
+                            <span class="nav-link-text">Booking</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/profile.html">
+                        <a class="nav-link" href="{{ url('admin/hotels') }}">
                             <i class="ni ni-single-02 text-yellow"></i>
-                            <span class="nav-link-text">Profile</span>
+                            <span class="nav-link-text">Hotels</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="examples/tables.html">
+                        <a class="nav-link" href="{{ url('admin/cars') }}">
                             <i class="ni ni-bullet-list-67 text-default"></i>
-                            <span class="nav-link-text">Tables</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="examples/login.html">
-                            <i class="ni ni-key-25 text-info"></i>
-                            <span class="nav-link-text">Login</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="examples/register.html">
-                            <i class="ni ni-circle-08 text-pink"></i>
-                            <span class="nav-link-text">Register</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="examples/upgrade.html">
-                            <i class="ni ni-send text-dark"></i>
-                            <span class="nav-link-text">Upgrade</span>
+                            <span class="nav-link-text">Cars</span>
                         </a>
                     </li>
                 </ul>

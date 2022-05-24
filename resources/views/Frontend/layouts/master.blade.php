@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from techydevs.com/demos/themes/html/trizen-demo/trizen/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Mar 2022 14:08:06 GMT -->
+
 @include('Frontend.layouts.includes.head')
 <body>
 <!-- start cssload-loader -->

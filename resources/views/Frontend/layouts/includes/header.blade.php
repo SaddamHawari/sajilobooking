@@ -40,36 +40,9 @@
                             </div>
                             <div class="header-right-action">
                                 <div class="select-contain select--contain w-auto">
-                                    <select class="select-contain-select">
-                                        <option value="1">AED</option>
-                                        <option value="2">AUD</option>
-                                        <option value="3">BRL</option>
-                                        <option value="4">CAD</option>
-                                        <option value="5">CHF</option>
-                                        <option value="6">CNY</option>
-                                        <option value="7">EUR</option>
-                                        <option value="8">GBP</option>
-                                        <option value="9">HKD</option>
-                                        <option value="10">IDR</option>
-                                        <option value="11">INR</option>
-                                        <option value="12">JPY</option>
-                                        <option value="13">KRW</option>
-                                        <option value="14">MYR</option>
-                                        <option value="15">NZD</option>
-                                        <option value="16">PHP</option>
-                                        <option value="17">PLN</option>
-                                        <option value="18">RUB</option>
-                                        <option value="19">SAR</option>
-                                        <option value="20">SGD</option>
-                                        <option value="21">THB</option>
-                                        <option value="22">TRY</option>
-                                        <option value="23">TWD</option>
-                                        <option value="24" selected>USD</option>
-                                        <option value="25">VND</option>
-                                        <option value="26">MXN</option>
-                                        <option value="27">ARS</option>
-                                        <option value="28">INR</option>
-                                    </select>
+                                    @if(\Illuminate\Support\Facades\Auth::check())
+                                        <p>Hello {{  \Illuminate\Support\Facades\Auth::check() ? \Illuminate\Support\Facades\Auth::user()->name : ''  }}</p>
+                                    @endif
                                 </div>
                             </div>
                             <div class="header-right-action">
