@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 //use App\Category;
 //use App\Product;
+use App\Models\Car;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,8 +27,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $data['categories'] = Category::all();
-//        $data['products'] = Product::all();
-        return view('frontend.master');
+        $data['hotels'] = Hotel::latest()->get();
+        $data['cars'] = Car::latest()->get();
+        return view('Frontend.layouts.master',$data);
+//        return  back();
     }
 }
