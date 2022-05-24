@@ -36,6 +36,7 @@ Route::post('/admin/submit', [\App\Http\Controllers\AdminController::class, 'sub
 Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logout'])->name('admin.logout');
 Route::get('/hotel/detail/{id}', [\App\Http\Controllers\HotelsController::class, 'detail'])->name('hotel.detail');
+Route::get('/hotel/search', [\App\Http\Controllers\HotelsController::class, 'hotelSearch'])->name('hotel.search');
 Route::post('/enc', [\App\Http\Controllers\EnquiryController::class, 'storeEnquiry'])->name('enc');
 Route:: post('/store-booking/{id}', [\App\Http\Controllers\BookingController::class, 'storeBooking'])->name('book.hotel')->middleware('auth');
 Route:: get('/approve/{id}', [\App\Http\Controllers\BookingController::class, 'approve'])->name('book.approve')->middleware('auth');

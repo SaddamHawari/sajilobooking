@@ -140,4 +140,24 @@ class HotelsController extends Controller
         $data['hotels'] = Hotel::latest()->get();
         return view('admin.hotels.hotelDetail',$data);
     }
+
+    public function hotelSearch(Request $request){
+
+
+        $keyword = $request->get('search');
+        $perPage = 25;
+
+        if (!empty($keyword)) {
+            $hotels = Hotel::where('name', 'LIKE', "%$keyword%")
+                ->orWhere('address', 'LIKE', "%$keyword%")
+                ->orWhere('description', 'LIKE', "%$keyword%")
+                ->orWhere('price', 'LIKE', "%$keyword%")
+                ->orWhere('type', 'LIKE', "%$keyword%")
+                ->latest()->paginate($perPage);
+        } else {
+            $hotels = Hotel::latest()->paginate($perPage);
+        }
+        return view('Frontend.layouts.master', compact('hotels'));
+
+    }
 }

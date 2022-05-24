@@ -628,13 +628,13 @@
 {{--                        </div><!-- end tab-pane -->--}}
                         <div class="tab-pane fade show active" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
                             <div class="contact-form-action">
-                                <form action="#" class="row align-items-center">
+                                <form action="{{ route('hotel.search') }}" class="row align-items-center">
                                     <div class="col-lg-3 pr-0">
                                         <div class="input-box">
                                             <label class="label-text">Destination / Hotel name</label>
                                             <div class="form-group">
                                                 <span class="la la-map-marker form-icon"></span>
-                                                <input class="form-control" type="text" placeholder="Enter city or property">
+                                                <input class="form-control" type="text" name="search" placeholder="Enter city or property">
                                             </div>
                                         </div>
                                     </div><!-- end col-lg-3 -->
@@ -702,11 +702,12 @@
                                             </div>
                                         </div>
                                     </div><!-- end col-lg-3 -->
-                                </form>
+
                             </div>
                             <div class="btn-box">
-                                <a href="hotel-search-result.html" class="theme-btn">Search Now</a>
+                                <button type="submit" class="theme-btn">Search Now</button>
                             </div>
+                            </form>
                         </div><!-- end tab-pane -->
                         <div class="tab-pane fade" id="car" role="tabpanel" aria-labelledby="car-tab">
                             <div class="contact-form-action">
