@@ -57,3 +57,5 @@ Route::resource('admin/enquiry', 'PostsController');
 Route::resource('admin/enquiry', 'EnquiryController');
 
 Route::resource('admin/booking', 'BookingController');
+Route::get('/logout', 'Auth\LoginController@logout');
+
