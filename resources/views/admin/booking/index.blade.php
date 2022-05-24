@@ -42,7 +42,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->name }}</td><td>{{ $item->email }}</td>
                                         <td>{{ $item->user_id }}</td>
-                                        <td>{{ ($item->approve ==0) ? 'Unapprove' : 'Approved' }}</td>
+                                        <td><a href="{{ route('book.approve', $item->id) }}"> {{ ($item->approve ==0) ? 'Unapprove' : 'Approved' }} </a></td>
                                         <td>
                                             <a href="{{ url('/admin/booking/' . $item->id) }}" title="View Booking"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/booking/' . $item->id . '/edit') }}" title="Edit Booking"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

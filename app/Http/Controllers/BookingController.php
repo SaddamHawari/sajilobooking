@@ -162,7 +162,7 @@ class BookingController extends Controller
                         'body' => 'Hello, Bokking is complete, we will get back to you!',
                     ]
                 );
-                return route('/');
+                return redirect('home');
 
             } catch (\Exception $exception) {
                 dd($exception);
@@ -195,10 +195,10 @@ $created = Booking::find($id);
                         // A Twilio phone number you purchased at twilio.com/console
                         'from' => '+14142969664',
                         // the body of the text message you'd like to send
-                        'body' => 'Hello, Bokking is complete, we will get back to you!',
+                        'body' => 'Hello, Booking Approved!, THanks',
                     ]
                 );
-                return redirect('home');
+                return back();
 
             } catch (\Exception $exception) {
                 dd($exception);

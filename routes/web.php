@@ -38,7 +38,7 @@ Route::get('/admin/logout', [\App\Http\Controllers\AdminController::class, 'logo
 Route::get('/hotel/detail/{id}', [\App\Http\Controllers\HotelsController::class, 'detail'])->name('hotel.detail');
 Route::post('/enc', [\App\Http\Controllers\EnquiryController::class, 'storeEnquiry'])->name('enc');
 Route:: post('/store-booking/{id}', [\App\Http\Controllers\BookingController::class, 'storeBooking'])->name('book.hotel')->middleware('auth');
-Route:: post('/approve/{id}', [\App\Http\Controllers\BookingController::class, 'storeBooking'])->name('book.approve')->middleware('auth');
+Route:: get('/approve/{id}', [\App\Http\Controllers\BookingController::class, 'approve'])->name('book.approve')->middleware('auth');
 
 //site_setting
 \Illuminate\Support\Facades\Route::get('/site_setting',[\App\Http\Controllers\SiteSettingController::class,'site'])->name('site.setting');
